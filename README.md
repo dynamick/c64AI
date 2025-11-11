@@ -14,10 +14,46 @@ Viciious brings the outstanding capabilities of the Commodore 64 microcomputer t
 - [Run the live demo](https://luxocrates.github.io/viciious/) on a desktop web browser.
  - Drag-and-drop `.t64`, `.d64`, `.tap`, `.prg` or `.sid` files into the browser window.
  - Your cursor keys and Shift map to a joystick plugged into Control Port 2.
- - What’s written on your keyboard is probably what gets typed in.
+ - What's written on your keyboard is probably what gets typed in.
  - Click anywhere on the page to open menus.
+ - Use the AI Assistant to help write and modify BASIC programs.
 
 The emulator distribution is a single, self-contained HTML file that does not access the Internet.
+
+## AI-Assisted BASIC Programming
+
+Viciious includes an AI assistant that helps you write and modify BASIC programs directly in the C64 environment:
+
+- **AI Chat Dialog**: Click the AI button in the lower tray to open a chat interface with GPT-4
+- **Context-Aware**: The AI can see your current BASIC program and suggest modifications
+- **Direct Code Injection**: Code changes are automatically tokenized and written to C64 RAM
+- **Import/Export**: Use the Import and Export buttons to load and save BASIC programs as text files
+
+### Live Reload Development Mode
+
+For rapid development, you can edit BASIC code in your favorite text editor:
+
+1. Create a file named `current.basic` in the `dist/web-dev/` directory
+2. Write or modify your BASIC program in this file
+3. Every time you save the file, the program automatically:
+   - Reloads into C64 memory
+   - Executes with the RUN command
+   
+This provides a modern development workflow with instant feedback, similar to hot module reloading in web development.
+
+**Example workflow:**
+```bash
+# Start the dev server
+$ npm start
+
+# In another terminal, edit your BASIC program
+$ echo "10 PRINT \"HELLO WORLD\"" > dist/web-dev/current.basic
+$ echo "20 GOTO 10" >> dist/web-dev/current.basic
+
+# Save the file and watch it auto-run in the emulator!
+```
+
+The file watcher checks for changes every second and automatically loads and runs your code.
 
 ## Purpose
 
