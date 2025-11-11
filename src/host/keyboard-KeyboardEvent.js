@@ -110,6 +110,12 @@ function buttonNamesToKeyMatrix(buttonNames) {
 
 
 function onKeyDown(event) {
+  // Ignore keyboard events when typing in input fields or textareas
+  const target = event.target;
+  if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
+    return;
+  }
+
   // Any keypress with the Meta key (cmd/ctrl/...) down isn't for us.
   if (event.metaKey) return;
 
@@ -152,6 +158,12 @@ function onKeyDown(event) {
 }
 
 function onKeyUp(event) {
+  // Ignore keyboard events when typing in input fields or textareas
+  const target = event.target;
+  if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
+    return;
+  }
+
   const buttonNames = getEventToButtonNames()(event);
   if (!buttonNames) return;
 

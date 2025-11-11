@@ -120,7 +120,7 @@
       <div class="tray-blanket _isBackground"></div>
       <div class="tray-flex _isBackground">
         <div>
-          <button id="joystickButton" class="iconButton"><%= require("./images/svg_icon-joystick.svg")%></button><button id="keymapButton" class="iconButton"><%= require("./images/svg_icon-key.svg")%></button><button id="loadButton" class="iconButton"><%= require("./images/svg_icon-tape.svg")%></button>
+          <button id="joystickButton" class="iconButton"><%= require("./images/svg_icon-joystick.svg")%></button><button id="keymapButton" class="iconButton"><%= require("./images/svg_icon-key.svg")%></button><button id="loadButton" class="iconButton"><%= require("./images/svg_icon-tape.svg")%></button><button id="aiChatButton" class="iconButton"><%= require("./images/svg_icon-ai-chat.svg")%></button>
         </div>
         <div></div>
         <div>
@@ -420,6 +420,36 @@
             <p id="errorDialog-text">
               An error occurred.
             </p>
+          </div>
+
+          <div id="aiChatDialog" class="dialog undisplayed">
+            <button class="close">&times;</button>
+            <h1>AI Assistant</h1>
+            <div class="aiChat-container">
+              <div id="aiChat-error" class="aiChat-error" style="display: none;"></div>
+              
+              <div id="aiChat-confirmationArea" class="aiChat-confirmationArea" style="display: none;">
+                <h3>Code Change Proposed</h3>
+                <div id="aiChat-changeDescription"></div>
+                <div id="aiChat-changeDetails"></div>
+                <div class="aiChat-confirmationButtons">
+                  <button id="aiChat-confirmButton" class="aiChat-confirmButton">Apply Changes</button>
+                  <button id="aiChat-rejectButton" class="aiChat-rejectButton">Reject</button>
+                </div>
+              </div>
+              
+              <div id="aiChat-messages" class="aiChat-messages"></div>
+              
+              <div class="aiChat-inputArea">
+                <textarea id="aiChat-input" class="aiChat-input" placeholder="Ask the AI to modify the codebase..."></textarea>
+                <div class="aiChat-buttons">
+                  <input type="file" id="aiChat-importInput" accept=".txt,.bas" style="display: none;" />
+                  <button id="aiChat-importButton" class="aiChat-importButton">Import Code</button>
+                  <button id="aiChat-exportButton" class="aiChat-exportButton">Export Code</button>
+                  <button id="aiChat-sendButton" class="aiChat-sendButton">Send</button>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>

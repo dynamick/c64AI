@@ -18,6 +18,8 @@
   box-shadow: 0 0 50px #0004;
 
   transition: opacity 0.25s, top 0.25s;
+  
+  z-index: 100;
 }
 
 .dialog.undisplayed {
@@ -62,6 +64,8 @@
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .dialog .tip {

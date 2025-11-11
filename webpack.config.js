@@ -15,6 +15,17 @@ module.exports = [
     devtool: "inline-source-map",
     devServer: {
       static: "./dist/web-dev",
+      setupMiddlewares: (middlewares, devServer) => {
+        if (!devServer) {
+          throw new Error('webpack-dev-server is not defined');
+        }
+        
+        // Add AI chat API server
+        const aiChatServer = require('./src/host/aiChatServer');
+        devServer.app.use(aiChatServer);
+        
+        return middlewares;
+      },
     },
     plugins: [
       new HtmlWebpackPlugin({

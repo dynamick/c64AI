@@ -14,6 +14,8 @@ import { initJoystickDialog } from "./joystickDialog";
 import { initKeyMapDialog }   from "./keyMapDialog";
 import { initLoaderDialog }   from "./loaderDialog";
 import { initDiskDialog }     from "./diskDialog";
+import { initAiChatDialog }   from "./aiChatDialog";
+import { initBasicFileWatcher, startWatching } from "./basicFileWatcher";
 
 // A development aid. Don't commit with this turned on.
 const pauseOnMenus = false;
@@ -56,7 +58,12 @@ export function attach(nascentC64) {
   initKeyMapDialog(c64);
   initLoaderDialog(c64);
   initDiskDialog(c64);
+  initAiChatDialog(c64);
   initScopes(c64);
+  initBasicFileWatcher(c64);
+  
+  // Start watching for current.basic file changes
+  startWatching();
 
   c64.hooks.reportError = showErrorDialog;
   c64.hooks.setTitle = setTitle;

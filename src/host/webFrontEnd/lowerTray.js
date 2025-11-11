@@ -1,6 +1,7 @@
 import { Dialog } from "./dialogs";
 import { toggleScopes } from "./scopes";
 import { takeSnapshot } from "./snapshot";
+import { openAiChatDialog } from "./aiChatDialog";
 
 let c64;
 
@@ -21,6 +22,12 @@ export function initLowerTray(nascentC64) {
       () => dialog.open()
     );
   }
+
+  handlerForEventForId(
+    "aiChatButton", 
+    "click",
+    () => openAiChatDialog()
+  );
 
   handlerForEventForId(
     "pauseButton", 

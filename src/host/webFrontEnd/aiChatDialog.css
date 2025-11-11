@@ -1,0 +1,228 @@
+#aiChatDialog {
+  max-width: 800px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#aiChatDialog h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.aiChat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-grow: 1;
+  min-height: 0;
+}
+
+.aiChat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  border: 1px solid #666;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  max-height: 400px;
+  min-height: 200px;
+}
+
+.aiChat-message {
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 6px;
+  line-height: 1.6;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.aiChat-message.user {
+  background-color: #4a6fa5;
+  text-align: right;
+}
+
+.aiChat-message.assistant {
+  background-color: #3a3a3a;
+  text-align: left;
+}
+
+.aiChat-message.system {
+  background-color: #5a5a2a;
+  font-style: italic;
+  text-align: center;
+}
+
+.aiChat-message-role {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 12px;
+  opacity: 0.9;
+  color: #ddd;
+}
+
+.aiChat-message-content {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #eee;
+}
+
+.aiChat-codeBlock {
+  background-color: #1a1a1a;
+  border: 1px solid #555;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px 0;
+  overflow-x: auto;
+  font-family: monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #0f0;
+}
+
+.aiChat-inputArea {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.aiChat-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.aiChat-input {
+  flex-grow: 1;
+  padding: 10px;
+  background-color: #3a3a3a;
+  color: #eee;
+  border: 1px solid #666;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 60px;
+}
+
+.aiChat-input:focus {
+  outline: none;
+  border-color: #7ab4e8;
+  background-color: #404040;
+}
+
+.aiChat-exportButton {
+  padding: 10px 20px;
+  background-color: #5a8f5a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.aiChat-exportButton:hover {
+  background-color: #6aa56a;
+}
+
+.aiChat-importButton {
+  padding: 10px 20px;
+  background-color: #8f7a5a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.aiChat-importButton:hover {
+  background-color: #a58a6a;
+}
+
+.aiChat-sendButton {
+  padding: 10px 20px;
+  background-color: #5a9fd4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.aiChat-sendButton:hover {
+  background-color: #4a8fc4;
+}
+
+.aiChat-sendButton:disabled {
+  background-color: #444;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.aiChat-confirmationArea {
+  background-color: #4a3a2a;
+  border: 1px solid #cc8a3a;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.aiChat-confirmationArea h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #ffd;
+}
+
+.aiChat-confirmationButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.aiChat-confirmButton,
+.aiChat-rejectButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.aiChat-confirmButton {
+  background-color: #5aaa5a;
+  color: white;
+}
+
+.aiChat-confirmButton:hover {
+  background-color: #4a9a4a;
+}
+
+.aiChat-rejectButton {
+  background-color: #ca5a5a;
+  color: white;
+}
+
+.aiChat-rejectButton:hover {
+  background-color: #ba4a4a;
+}
+
+.aiChat-loading {
+  text-align: center;
+  padding: 10px;
+  opacity: 0.8;
+  color: #bbb;
+}
+
+.aiChat-error {
+  background-color: #6a3a3a;
+  border: 1px solid #ca6a6a;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 15px;
+  color: #fcc;
+}
