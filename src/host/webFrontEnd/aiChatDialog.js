@@ -2,6 +2,7 @@ import { Dialog, closeAllDialogs } from "./dialogs";
 import css from "./aiChatDialog.css";
 import { extractBasicProgram, basicLinesToText } from "../../tools/basicExtractor";
 import { writeBasicProgramToRam } from "../../tools/basicTokenizer";
+import { buildPrgFromBasic, downloadPrg, buildT64FromPrg, downloadT64 } from "./exportPrg";
 
 let c64;
 let dialog;
@@ -60,6 +61,8 @@ export function initAiChatDialog(nascentC64) {
   document.getElementById("aiChat-confirmButton")?.addEventListener("click", handleConfirmChange);
   document.getElementById("aiChat-rejectButton")?.addEventListener("click", handleRejectChange);
   document.getElementById("aiChat-exportButton")?.addEventListener("click", handleExportCode);
+  document.getElementById("aiChat-exportPrgButton")?.addEventListener("click", handleExportPrg);
+  document.getElementById("aiChat-exportT64Button")?.addEventListener("click", handleExportT64);
   document.getElementById("aiChat-importButton")?.addEventListener("click", handleImportCode);
   
   // Handle file input change
@@ -326,6 +329,29 @@ function handleExportCode() {
   } catch (error) {
     console.error("Error exporting BASIC program:", error);
     showError(`Failed to export code: ${error.message}`);
+  }
+}
+
+function handleExportPrg() {
+  try {
+    const prg = buildPrgFromBasic(c64);
+    downloadPrg(prg, `viciious-program-${new Date().toISOString().replace(/[:.]/g,'-')}.prg`);
+    addMessage("system", ".PRG file downloaded");
+  } catch (err) {
+    console.error('Failed to export PRG', err);
+    showError('Failed to export .prg');
+  }
+}
+
+function handleExportT64() {
+  try {
+    const prg = buildPrgFromBasic(c64);
+    const t64 = buildT64FromPrg(prg, 'viciious');
+    downloadT64(t64, `viciious-${new Date().toISOString().replace(/[:.]/g,'-')}.t64`);
+    addMessage("system", ".T64 file downloaded");
+  } catch (err) {
+    console.error('Failed to export T64', err);
+    showError('Failed to export .t64');
   }
 }
 
