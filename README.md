@@ -27,7 +27,12 @@ Viciious includes an AI assistant that helps you write and modify BASIC programs
 - **AI Chat Dialog**: Click the AI button in the lower tray to open a chat interface with GPT-4
 - **Context-Aware**: The AI can see your current BASIC program and suggest modifications
 - **Direct Code Injection**: Code changes are automatically tokenized and written to C64 RAM
-- **Import/Export**: Use the Import and Export buttons to load and save BASIC programs as text files
+ - **Import/Export**: Use the Import and Export buttons to load and save BASIC programs as text files
+ - **Export to .PRG / .T64**: From the AI Assistant dialog you can now export the currently loaded BASIC program as a `.prg` file (standard C64 program) or as a minimal `.t64` tape image. Use the `Export .PRG` or `Export .T64` buttons to download a file compatible with VICE and other C64 tools.
+
+    Quick notes:
+    - `.prg` is the simplest and most widely-compatible format: it contains the 2-byte load address followed by the raw program bytes.
+    - `.t64` produces a minimal tape container wrapping the `.prg` (useful for loaders that expect tape images).
 
 ### Live Reload Development Mode
 
